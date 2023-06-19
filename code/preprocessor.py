@@ -7,17 +7,16 @@ def preprocessor ():
     # что будет внутри окна
     # первым описываем кнопку и сразу указываем размер шрифта
     layout = [
+        [sg.Text('Путь к изображению:', size=(50, 1), key='-text-', font='Helvetica 12')],
         [sg.Input(key='-INPUT-')],
+        [sg.Text('Куда сохранить:', size=(50, 1), key='-text-', font='Helvetica 12')],
         [sg.Input(key='-OUTPUT-')],
         # затем делаем текст
         [sg.Button('Удалить фон', enable_events=True, key='-DO_BG-', font='Helvetica 16')],
-
-        [sg.Input(key='-INPUT1-')],
-        [sg.Input(key='-OUTPUT1-')],
         # затем делаем текст
         [sg.Button('Удалить лицо', enable_events=True, key='-DO_FACE-', font='Helvetica 16')]]
     # рисуем окно
-    window = sg.Window('Препроцессор', layout, size=(350, 200))
+    window = sg.Window('Препроцессор', layout, size=(350, 280))
 
     # запускаем основной бесконечный цикл
     while True:
@@ -35,8 +34,8 @@ def preprocessor ():
             # запускаем связанную функцию
             delete_background(input_path, output_path)
         if event == '-DO_FACE-':
-            input_path = values['-INPUT1-']
-            output_path = values['-OUTPUT1-']
+            input_path = values['-INPUT-']
+            output_path = values['-OUTPUT-']
             face_remove(input_path, output_path)
 
     # закрываем окно и освобождаем используемые ресурсы

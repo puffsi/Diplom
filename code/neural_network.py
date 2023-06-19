@@ -6,20 +6,24 @@ def neural_network ():
   # что будет внутри окна
   # первым описываем кнопку и сразу указываем размер шрифта
   layout = [
+    [sg.Text('Путь к обучающей выборке:', size=(50, 1), key='-text-', font='Helvetica 12')],
     [sg.Input(key='-INPUT_TR-')],
+    [sg.Text('Путь к валидационной выборке:', size=(50, 1), key='-text-', font='Helvetica 12')],
     [sg.Input(key='-INPUT_VL-')],
+    [sg.Text('Куда сохранить нейронную сеть:', size=(50, 1), key='-text-', font='Helvetica 12')],
     [sg.Input(key='-OUTPUT-')],
     # затем делаем текст
     [sg.Button('Обучить нейронную сеть', enable_events=True, key='-DO_LEARN-', font='Helvetica 16')],
-    [sg.Text('Результат:', size=(20, 1), key='-text-', font='Helvetica 16')],
-
+    [sg.Text('Результат:', size=(20, 1), key='-text-', font='Helvetica 12')],
+    [sg.Text('Путь к тестовой выборке:', size=(50, 1), key='-text-', font='Helvetica 12')],
     [sg.Input(key='-INPUT_TS-')],
+    [sg.Text('Путь к нейронной сети:', size=(50, 1), key='-text-', font='Helvetica 12')],
     [sg.Input(key='-INPUT_M-')],
     # затем делаем текст
     [sg.Button('Протестировать нейронную сеть', enable_events=True, key='-DO_TEST-', font='Helvetica 16')],
     [sg.Text('Результат:', size=(50, 1), key='-text1-', font='Helvetica 12')]]
   # рисуем окно
-  window = sg.Window('Нейронная сеть', layout, size=(450, 350))
+  window = sg.Window('Нейронная сеть', layout, size=(500, 500))
 
   # запускаем основной бесконечный цикл
   while True:
